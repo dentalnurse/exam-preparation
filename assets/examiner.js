@@ -39,11 +39,39 @@
   // ---------- voice out ----------
   var synth = window.speechSynthesis;
   var voice = null;
+  var VOICE_KEY = "dnt-examiner-voice";
+  // British voices first. Higher score = better. Edge "Natural" voices sound the most human.
+  var PREFERRED = [/natural/i, /google uk english/i, /^daniel/i, /^serena/i, /^kate/i, /^oliver/i,
+                   /^martha/i, /^arthur/i, /libby|sonia|ryan|maisie|thomas/i, /hazel|george|susan/i];
+  function score(v) {
+    var s = /en-GB/i.test(v.lang) ? 100 : (/^en/i.test(v.lang) ? 10 : 0);
+    for (var i = 0; i < PREFERRED.length; i++) {
+      if (PREFERRED[i].test(v.name)) { s += (PREFERRED.length - i) * 2; break; }
+    }
+    if (/novelty|whisper|bad news|bells|bubbles|cellos|zarvox|trinoids|jester|organ|superstar|wobble|boing|albert/i.test(v.name)) s -= 200;
+    return s;
+  }
+  function englishVoices() {
+    return synth.getVoices().filter(function (v) { return /^en/i.test(v.lang) && score(v) > 0; })
+      .sort(function (a, b) { return score(b) - score(a) || a.name.localeCompare(b.name); });
+  }
+  function savedVoice() { try { return localStorage.getItem(VOICE_KEY); } catch (e) { return null; } }
   function pickVoice() {
     if (!synth) return;
-    var v = synth.getVoices();
-    voice = v.filter(function (x) { return /en-GB/i.test(x.lang); })[0] ||
-            v.filter(function (x) { return /^en/i.test(x.lang); })[0] || null;
+    var list = englishVoices();
+    if (!list.length) return;
+    var want = savedVoice();
+    voice = list.filter(function (v) { return v.name === want; })[0] || list[0];
+    var sel = $("voice-pick");
+    sel.innerHTML = "";
+    list.forEach(function (v) {
+      var o = document.createElement("option");
+      o.value = v.name;
+      o.textContent = v.name.replace(/^Microsoft /, "").replace(/ - English.*$/, "") + (/en-GB/i.test(v.lang) ? " (British)" : " (" + v.lang + ")");
+      if (v === voice) o.selected = true;
+      sel.appendChild(o);
+    });
+    $("voice-choose").hidden = false;
   }
   if (synth) { pickVoice(); synth.onvoiceschanged = pickVoice; }
 
@@ -236,6 +264,16 @@
   }
   $("mic").onclick = function () {
     if (listening) { stopListening(); } else { useMic = true; if (synth) synth.cancel(); startListening(); }
+  };
+  $("voice-pick").onchange = function () {
+    var name = this.value;
+    voice = englishVoices().filter(function (v) { return v.name === name; })[0] || voice;
+    try { localStorage.setItem(VOICE_KEY, name); } catch (e) { /* storage unavailable */ }
+  };
+  $("voice-test").onclick = function () {
+    var was = $("voice-on").checked; $("voice-on").checked = true;
+    say("Hello. I'm your practice examiner. Talk me through what you would do.");
+    $("voice-on").checked = was;
   };
   $("skip-read").onclick = beginTalk;
   $("repeat").onclick = function () { if (S) say(S.current); };
