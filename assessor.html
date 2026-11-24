@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI assessor | DNT Professional Discussion Prep</title>
-<meta name="description" content="AI practice assessor, coming soon.">
+<title>Practice examiner | DNT Professional Discussion Prep</title>
+<meta name="description" content="Practise a Professional Discussion with a talking examiner.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="assets/dnt-logo.png">
 <link rel="stylesheet" href="assets/style.css">
@@ -19,35 +19,82 @@
       <a href="index.html">Guide</a>
       <a href="practice.html">Practice</a>
       <a href="knowledge.html">Knowledge test</a>
-      <a href="assessor.html" aria-current="page">AI assessor</a>
+      <a href="assessor.html" aria-current="page">Practice examiner</a>
     </nav>
   </div>
 </header>
 <div class="hero small"><div class="inner">
-  <span class="eyebrow">Coming soon</span>
-  <h1>AI practice assessor</h1>
-  <p>Practise a Professional Discussion with an AI assessor that asks follow-up questions, just like the real thing.</p>
+  <span class="eyebrow">Practice examiner</span>
+  <h1>Practice examiner <span class="soon">TRIAL</span></h1>
+  <p>Read a scenario, then talk to the examiner. It listens to your answer and asks follow-up questions about anything you haven't mentioned.</p>
 </div></div>
 <main>
-  <section class="panel construction">
-    <span class="badge">UNDER CONSTRUCTION</span>
-    <h2>Coming soon</h2>
-    <p>We are building an AI assessor you can talk to using your microphone, or by typing if you prefer. It is not available yet.</p>
-  </section>
-  <section class="panel">
-    <h2>How it will work</h2>
+  <section class="panel" id="setup">
+    <h2>Before you start</h2>
+    <div class="info warn"><strong>This is a practice tool, not an assessment.</strong> The examiner checks your answer for key words only. It doesn't understand meaning, so it may ask about something you have already said in different words. It does not mark your work. If anything doesn't seem right, or you want to query something, ask your DNT assessor.</div>
     <ol class="steps">
-      <li><strong>Choose a scenario</strong> and use the reading time to make notes.</li>
-      <li><strong>Talk to the assessor.</strong> Explain what you would do and why.</li>
-      <li><strong>Answer follow-up questions.</strong> The assessor will ask you to expand, the way a real assessor would.</li>
-      <li><strong>Reflect.</strong> Use the scenario checklist to see what you covered and what to revise.</li>
+      <li><strong>Read the scenario.</strong> You have 10 minutes' reading time. You can start sooner.</li>
+      <li><strong>Answer the examiner.</strong> Press <em>Start speaking</em> and talk, or type your answer. Press <em>I've finished</em> when you are done.</li>
+      <li><strong>Answer the follow-up questions.</strong> The examiner asks about points you haven't covered yet, up to 5 questions.</li>
+      <li><strong>Look at the topics to revise</strong> at the end.</li>
     </ol>
-    <div class="info warn">This is a practice tool for your own preparation. AI is not always accurate, so if anything it says doesn't seem right, or you want to query something, ask your DNT assessor.</div>
+    <label class="toggle"><input type="checkbox" id="voice-on" checked> Read the examiner's questions out loud</label>
+    <p class="progress-summary" id="voice-note"></p>
+    <p class="progress-summary" id="mic-note">Your browser will ask to use your microphone the first time you press Start speaking. Please don't mention real patients.</p>
+    <h3>Choose a scenario</h3>
+    <div class="grid" id="choices"></div>
   </section>
-  <section class="panel">
-    <h2>Until then</h2>
-    <p>Use the practice scenarios with a timer and checklist, or ask a colleague to play the assessor.</p>
-    <a class="btn" href="practice.html">Go to practice</a>
+
+  <section class="runner" id="runner" hidden>
+    <button class="btn secondary small" id="back" type="button">Stop and go back</button>
+    <h2 id="r-title"></h2>
+    <div class="scenario-text" id="r-prompt"></div>
+    <div class="timer-box">
+      <div>
+        <div class="phase-label" id="r-phase"></div>
+        <div class="timer" id="r-timer">0:00</div>
+      </div>
+    </div>
+
+    <div id="phase-read">
+      <p>Use this time to read the scenario and make notes on paper. The examiner will start when the time runs out.</p>
+      <button class="btn" id="skip-read" type="button">I'm ready, start now</button>
+    </div>
+
+    <div id="phase-talk" hidden>
+      <div class="examiner-q" aria-live="polite">
+        <div class="phase-label">Examiner</div>
+        <p id="question"></p>
+        <button class="btn secondary small" id="repeat" type="button">Repeat question</button>
+      </div>
+      <label class="phase-label" for="answer">Your answer</label>
+      <textarea id="answer" class="answer-box" rows="6" placeholder="Press Start speaking and talk, or type your answer here."></textarea>
+      <p class="progress-summary" id="mic-status" aria-live="polite"></p>
+      <div class="btn-row">
+        <button class="btn mic" id="mic" type="button">Start speaking</button>
+        <button class="btn" id="done" type="button">I've finished this answer</button>
+        <button class="btn secondary" id="skip-q" type="button">Skip this question</button>
+      </div>
+    </div>
+
+    <div id="phase-end" hidden>
+      <h3>End of the discussion</h3>
+      <p id="end-summary"></p>
+      <div id="revise-wrap">
+        <p><strong>Topics you might want to revise.</strong> These are topics the examiner didn't hear you mention. You may have covered some of them in your own words, so check them against your notes.</p>
+        <ul class="ticks" id="revise"></ul>
+      </div>
+      <p id="revise-none" hidden>The examiner heard you mention all of the key topics for this scenario.</p>
+      <div class="info warn">This is not a mark. The examiner only checks for key words. Talk to your DNT assessor if you have any questions.</div>
+      <div class="btn-row">
+        <button class="btn" id="again" type="button">Try this scenario again</button>
+        <button class="btn secondary" id="print" type="button">Print or save</button>
+        <button class="btn secondary" id="back2" type="button">Back to scenarios</button>
+      </div>
+    </div>
+
+    <h3>Conversation</h3>
+    <ol class="convo" id="log"></ol>
   </section>
 </main>
 <footer class="site-footer">
@@ -57,5 +104,8 @@
     <p>DNT is an independent training provider. This site is not produced or endorsed by NEBDN or the GDC.</p>
   </div>
 </footer>
+<script src="assets/scenarios.js"></script>
+<script src="assets/examiner-data.js"></script>
+<script src="assets/examiner.js"></script>
 </body>
 </html>

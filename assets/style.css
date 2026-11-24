@@ -282,3 +282,17 @@ ul.ticks li::before { content: ""; position: absolute; left: 4px; top: 9px; widt
   .site-header, .site-nav, .btn, .filters, .test-banner { display: none !important; }
   .panel, .card { box-shadow: none; border: 1px solid var(--line); }
 }
+
+/* Practice examiner */
+.toggle { display: flex; gap: 10px; align-items: center; font-weight: bold; margin: 18px 0 4px; cursor: pointer; }
+.toggle input { width: 20px; height: 20px; accent-color: var(--teal-dark); }
+.examiner-q { background: var(--teal-wash); border-left: 4px solid var(--teal); border-radius: 12px; padding: 16px 20px; margin: 18px 0; }
+.examiner-q p { font-size: 1.15rem; margin: 6px 0 12px; }
+.answer-box { width: 100%; font-family: inherit; font-size: 1rem; padding: 12px 14px; border: 2px solid var(--line); border-radius: 12px; margin: 6px 0; resize: vertical; }
+.answer-box:focus { outline: none; border-color: var(--teal); }
+.btn.mic.live { background: var(--bad); border-color: var(--bad); }
+.convo { list-style: none; padding: 0; margin: 0; }
+.convo li { padding: 10px 14px; border-radius: 10px; margin: 8px 0; font-size: 0.95rem; }
+.convo li.ex { background: var(--teal-wash); }
+.convo li.me { background: #fff; border: 1px solid var(--line); }
+.convo strong { color: var(--teal-deep); }
