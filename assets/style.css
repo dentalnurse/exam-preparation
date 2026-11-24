@@ -149,3 +149,23 @@ details summary { cursor: pointer; font-weight: bold; }
   border-radius: 50%; background: var(--teal); color: #fff; font-weight: bold;
   display: flex; align-items: center; justify-content: center;
 }
+
+/* Knowledge test */
+.sr { position: absolute; left: -9999px; }
+.select { font-family: inherit; font-size: 1rem; padding: 8px; border: 1px solid var(--line); border-radius: 6px; width: 100%; background: #fff; }
+.kt-top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
+.kt-timer { font-size: 1.6rem; margin: 0; }
+#kt-unit-label { display: inline-block; margin: 16px 0 0; }
+#kt-q { font-size: 1.25rem; margin: 10px 0 16px; }
+.kt-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.kt-options button {
+  text-align: left; font-family: inherit; font-size: 1rem; padding: 12px 14px;
+  border: 2px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); cursor: pointer;
+}
+.kt-options button:hover { border-color: var(--teal); }
+.kt-options button.chosen { border-color: var(--teal-dark); background: var(--teal-light); }
+.kt-options button.right { border-color: var(--ok); background: #E8F5E9; }
+.kt-options button.wrong { border-color: #C62828; background: #FFEBEE; }
+.review-item { border-bottom: 1px solid var(--line); padding: 10px 0; }
+.review-item .ok { color: var(--ok); font-weight: bold; }
+.review-item .no { color: #C62828; font-weight: bold; }

@@ -4,6 +4,8 @@ A static website to help DNT dental nursing learners prepare for their Professio
 
 - `index.html`: the guide
 - `practice.html`: timed practice scenarios with follow-up questions and self-check checklists
+- `knowledge.html`: multiple choice knowledge test across Units 1 to 10 (practice by unit or timed mock)
+- `assets/questions.js`: the knowledge test question bank
 - `assessor.html`: AI assessor (under construction)
 - `assets/scenarios.js`: all scenario content. Edit this file to add or change scenarios.
 
