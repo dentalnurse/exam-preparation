@@ -38,7 +38,12 @@
       <li><strong>Look at the topics to revise</strong> at the end.</li>
     </ol>
     <label class="toggle"><input type="checkbox" id="voice-on" checked> Read the examiner's questions out loud</label>
-    <p class="progress-summary" id="voice-note"></p>
+    <div class="voice-choose" id="voice-choose" hidden>
+      <label for="voice-pick">Examiner's voice</label>
+      <select id="voice-pick" class="select"></select>
+      <button class="btn secondary small" id="voice-test" type="button">Test voice</button>
+    </div>
+    <p class="progress-summary" id="voice-note">British voices are listed first. The voices on offer depend on your device and browser. Microsoft Edge usually has the most natural sounding ones.</p>
     <p class="progress-summary" id="mic-note">Your browser will ask to use your microphone the first time you press Start speaking. Please don't mention real patients.</p>
     <h3>Choose a scenario</h3>
     <div class="grid" id="choices"></div>

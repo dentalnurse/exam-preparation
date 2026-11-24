@@ -296,3 +296,6 @@ ul.ticks li::before { content: ""; position: absolute; left: 4px; top: 9px; widt
 .convo li.ex { background: var(--teal-wash); }
 .convo li.me { background: #fff; border: 1px solid var(--line); }
 .convo strong { color: var(--teal-deep); }
+.voice-choose { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 10px 0 4px; }
+.voice-choose label { font-weight: bold; }
+.voice-choose .select { width: auto; max-width: 100%; flex: 1 1 220px; }
