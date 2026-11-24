@@ -17,9 +17,9 @@
   }
 
   var progress = load(STORE, {});
-  // Timings are fixed: 2.5 minutes reading per scenario (the 10 minutes' reading is shared across
-  // the scenarios), then 10 minutes to answer.
-  var prefs = { read: 2.5, answer: 10 };
+  // Timings are fixed: 2 minutes reading and 10 minutes to answer per scenario.
+  // DNT estimate: 10 minutes' reading and 50 minutes' discussion shared across 5 scenarios.
+  var prefs = { read: 2, answer: 10 };
 
   // ---------- list ----------
   var groups = ["All"].concat(scenarios.map(function (s) { return s.group; })
