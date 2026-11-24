@@ -4,16 +4,16 @@
   Please check clinical and legal content against current UK guidance before each cohort.
 */
 window.DNT_UNITS = {
-  1: "Unit 1: Professionalism and safeguarding",
-  2: "Unit 2: Teamwork and scope of practice",
-  3: "Unit 3: Communication and records",
-  4: "Unit 4: Equality, diversity and inclusion",
-  5: "Unit 5: Oral health, anatomy, infection control, materials and radiography",
-  6: "Unit 6: Diet, patient history and referrals",
-  7: "Unit 7: Healthcare systems and prevention",
+  1: "Unit 1: Professional practice within the dental setting",
+  2: "Unit 2: Leading, managing and team working",
+  3: "Unit 3: Communication in the dental setting",
+  4: "Unit 4: Inclusive practice",
+  5: "Unit 5: Assessment and diagnosis of patients",
+  6: "Unit 6: Treatment planning and onward referring",
+  7: "Unit 7: Promoting oral health",
   8: "Unit 8: Health and wellbeing",
-  9: "Unit 9: Reflection and CPD",
-  10: "Unit 10: Medical emergencies"
+  9: "Unit 9: Continued professional development",
+  10: "Unit 10: Risks and medical emergencies"
 };
 window.DNT_QUESTIONS = [
   [1, "How many principles are set out in the GDC Standards for the Dental Team?", ["6", "7", "9", "12"], 2, "There are nine principles, starting with 'Put patients' interests first'."],

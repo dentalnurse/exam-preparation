@@ -45,7 +45,7 @@
     var c = $("cards"); c.innerHTML = "";
     scenarios.filter(function (s) { return activeGroup === "All" || s.group === activeGroup; })
       .forEach(function (s) {
-        var card = el("article", "card scenario" + (s.group.indexOf("Unit 7") === 0 ? " group-u7" : ""));
+        var card = el("article", "card scenario" + (s.group.indexOf("Unit 7") === 0 ? " group-u7" : s.group === "End-point practice" ? " group-ep" : ""));
         var tags = el("div", "tags");
         s.acs.forEach(function (a) { tags.appendChild(el("span", "tag", a)); });
         var p = progress[s.id];
