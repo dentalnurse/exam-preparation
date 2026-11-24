@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Knowledge test | DNT Professional Discussion Prep</title>
-<meta name="description" content="Multiple choice knowledge test practice for dental nursing learners.">
+<meta name="description" content="Multiple choice and extended multiple choice knowledge test practice for dental nursing learners.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="assets/dnt-logo.png">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<div class="test-banner">TEST SITE: this is a preview for DNT learners and staff. Content is still being checked.</div>
+<div class="test-banner">TEST SITE: a preview for DNT learners and staff. Content is still being checked.</div>
 <header class="site-header">
   <div class="inner">
     <a class="logo-box" href="index.html"><img src="assets/dnt-logo.png" alt="DNT logo"></a>
@@ -23,30 +23,41 @@
     </nav>
   </div>
 </header>
+<div class="hero small"><div class="inner">
+  <h1>Knowledge test practice</h1>
+  <p>Multiple choice and extended multiple choice questions across all ten units, written by DNT with an explanation for every answer.</p>
+</div></div>
 <main>
   <section id="kt-start">
-    <h1>Knowledge test practice</h1>
-    <p>Multiple choice questions across all ten units. Every question was written by DNT and comes with an explanation.</p>
     <p class="progress-summary" id="kt-progress"></p>
     <div class="grid">
       <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
         <h3>Practice by unit</h3>
         <p>Pick a unit and see the answer and explanation straight after each question.</p>
         <label for="kt-unit" class="sr">Unit</label>
         <select id="kt-unit" class="select"></select>
+        <label for="kt-type" class="sr">Question type</label>
+        <select id="kt-type" class="select">
+          <option value="all">All question types</option>
+          <option value="mcq">Multiple choice only</option>
+          <option value="emq">Extended multiple choice only</option>
+        </select>
         <button class="btn small" id="kt-practice" type="button">Start practice</button>
       </article>
       <article class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <h3>Mock exam</h3>
-        <p>Timed, with no answers shown until the end. Questions are mixed across all units.</p>
-        <div class="settings">
-          <label>Questions <input type="number" id="kt-count" min="5" max="200" value="65"></label>
-          <label>Minutes <input type="number" id="kt-mins" min="5" max="240" value="90"></label>
-        </div>
+        <p>65 questions in 90 minutes, mixed across all units, like the NEBDN Knowledge Test. Answers are shown at the end with a revision report.</p>
         <button class="btn small" id="kt-mock" type="button">Start mock exam</button>
       </article>
     </div>
-    <div class="info">The mock exam is set to 65 questions in 90 minutes, which is the format reported for the NEBDN Knowledge Test. Always check your NEBDN candidate guidance for the current format.</div>
+    <div class="panel" style="margin-top:22px">
+      <h2>About the question types</h2>
+      <p><strong>Multiple choice:</strong> one question with a list of options. Choose the one best answer.</p>
+      <p><strong>Extended multiple choice:</strong> a theme with a longer list of options, followed by several questions. Choose the best option for each question. Each option may be used once, more than once, or not at all.</p>
+      <div class="info">NEBDN's specification describes the Knowledge Test as 65 multiple choice questions in 90 minutes, taken online. Extended questions are included here because they are good practice for applying what you know. Always check NEBDN's latest guidance.</div>
+    </div>
   </section>
 
   <section class="runner" id="kt-run" hidden aria-live="polite">
@@ -55,7 +66,9 @@
       <span class="phase-label" id="kt-count-label"></span>
       <span class="timer kt-timer" id="kt-timer" hidden></span>
     </div>
-    <p class="tag" id="kt-unit-label"></p>
+    <div class="meter"><span id="kt-meter" style="width:0"></span></div>
+    <span class="tag" id="kt-unit-label"></span>
+    <div class="emq-theme" id="kt-theme" hidden><h3 id="kt-theme-title"></h3><p id="kt-theme-lead"></p></div>
     <h2 id="kt-q"></h2>
     <div class="kt-options" id="kt-options"></div>
     <div class="info" id="kt-expl" hidden></div>
@@ -66,21 +79,34 @@
   </section>
 
   <section id="kt-results" hidden>
-    <h2>Your results</h2>
-    <p class="result" id="kt-score"></p>
-    <div id="kt-byunit"></div>
-    <h3>Review your answers</h3>
-    <div id="kt-review"></div>
+    <div class="panel">
+      <h2>Your results</h2>
+      <div class="score-big" id="kt-pct"></div>
+      <p class="result" id="kt-score"></p>
+    </div>
+    <div class="panel" id="kt-report-panel">
+      <h2>Your revision report</h2>
+      <div id="kt-report"></div>
+    </div>
+    <div class="panel">
+      <h2>Results by unit</h2>
+      <div id="kt-byunit"></div>
+    </div>
+    <div class="panel">
+      <h2>Review your answers</h2>
+      <div id="kt-review"></div>
+    </div>
     <div class="btn-row"><button class="btn" id="kt-again" type="button">Back to start</button></div>
   </section>
 </main>
-<script src="assets/questions.js"></script>
-<script src="assets/knowledge.js"></script>
 <footer class="site-footer">
   <div class="inner">
-    <p><strong>DNT Dental Nurse Training</strong>, Professional Discussion preparation for the NEBDN Level 3 Diploma in Dental Nursing.</p>
-    <p>Covers knowledge from Units 1 to 10</p>
+    <p><strong>DNT Dental Nurse Training</strong>, preparation for the NEBDN Level 3 Diploma in Dental Nursing.</p>
+    <p>AC: Knowledge across Units 1 to 10</p>
     <p>DNT is an independent training provider. This site is not produced or endorsed by NEBDN or the GDC.</p>
   </div>
 </footer>
-</body></html>
+<script src="assets/questions.js"></script>
+<script src="assets/knowledge.js"></script>
+</body>
+</html>
