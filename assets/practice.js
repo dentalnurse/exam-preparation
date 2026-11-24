@@ -1,7 +1,6 @@
 (function () {
   var scenarios = window.DNT_SCENARIOS || [];
   var STORE = "dnt-pd-progress";
-  var PREFS = "dnt-pd-prefs";
 
   function load(key, fallback) {
     try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch (e) { return fallback; }
@@ -18,15 +17,8 @@
   }
 
   var progress = load(STORE, {});
-  var prefs = load(PREFS, { read: 5, answer: 10 });
-  $("readMins").value = prefs.read;
-  $("answerMins").value = prefs.answer;
-  ["readMins", "answerMins"].forEach(function (id) {
-    $(id).addEventListener("change", function () {
-      prefs = { read: Number($("readMins").value) || 0, answer: Number($("answerMins").value) || 1 };
-      save(PREFS, prefs);
-    });
-  });
+  // Timings are fixed: 10 minutes reading (to match NEBDN), 10 minutes to answer each scenario.
+  var prefs = { read: 10, answer: 10 };
 
   // ---------- list ----------
   var groups = ["All"].concat(scenarios.map(function (s) { return s.group; })
@@ -53,7 +45,7 @@
     var c = $("cards"); c.innerHTML = "";
     scenarios.filter(function (s) { return activeGroup === "All" || s.group === activeGroup; })
       .forEach(function (s) {
-        var card = el("article", "card");
+        var card = el("article", "card scenario" + (s.group.indexOf("Unit 7") === 0 ? " group-u7" : s.group === "End-point practice" ? " group-ep" : ""));
         var tags = el("div", "tags");
         s.acs.forEach(function (a) { tags.appendChild(el("span", "tag", a)); });
         var p = progress[s.id];
@@ -111,6 +103,7 @@
     if (prefs.read > 0) {
       phase = "read";
       $("r-phase").textContent = "Reading time";
+      $("r-hint").textContent = "Read the scenario and make notes. Press Start answering when you are ready.";
       $("r-next").textContent = "Start answering";
       runTimer(prefs.read);
     } else {
@@ -121,7 +114,8 @@
 
   function beginAnswer() {
     phase = "answer";
-    $("r-phase").textContent = "Answer out loud: what do you notice, what would you do, and why?";
+    $("r-phase").textContent = "Answer time";
+    $("r-hint").textContent = "Answer out loud: what do you notice, what would you do, who would you involve, and why?";
     $("r-next").textContent = "Show follow-up questions";
     runTimer(prefs.answer);
   }
@@ -167,6 +161,7 @@
     else if (pct >= 0.6) msg += "Good effort. Go back over the points you missed and try again.";
     else msg += "Keep going. Revise the points you missed, then run this scenario again.";
     $("r-result").textContent = msg;
+    $("r-meter").style.width = Math.round(pct * 100) + "%";
   }
 
   $("r-save").onclick = function () {

@@ -1,7 +1,7 @@
 /*
   DNT Professional Discussion practice scenarios.
-  Scope: only the ACs DNT assesses by Professional Discussion
-  (KE 1.1.9, PE 1.2.10, KE 7.1.2, 7.1.3, 7.1.4, 7.1.11, PE 7.2.1, 7.2.2, 7.2.3).
+  Two parts: DNT internal Professional Discussions (KE 1.1.9, PE 1.2.10, KE 7.1.2, 7.1.3, 7.1.4, 7.1.11,
+  PE 7.2.1, 7.2.2, 7.2.3), and End-point practice for the NEBDN Professional Discussion (one scenario per unit).
   To add a scenario, copy one object and change the fields.
 */
 window.DNT_SCENARIOS = [
@@ -170,6 +170,238 @@ window.DNT_SCENARIOS = [
       "Mentions correct waste segregation (HTM 07-01) and amalgam phase-down",
       "Evaluates each change, including cost, patient safety and practicality",
       "Considers the impact of a treatment across its whole life (materials, energy, waste, travel)"
+    ]
+  }
+  /* ---------- End-point Professional Discussion practice (NEBDN, all units) ---------- */
+  ,{
+    id: "ep-u1-concern",
+    group: "End-point practice",
+    title: "A colleague who may be unfit to work",
+    acs: ["Unit 1"],
+    prompt: "You arrive for the morning session and notice that the dental nurse you are working alongside smells strongly of alcohol, is slurring slightly and has dropped two instruments. The first patient is due in ten minutes and the dentist hasn't arrived yet.",
+    followups: [
+      "What is your first priority, and why?",
+      "Who would you tell, and what would you say?",
+      "What if the practice doesn't act on your concern?",
+      "Which standards and laws support you in raising this?",
+      "How would you support your colleague as well as protecting patients?"
+    ],
+    checklist: [
+      "Puts patient safety first and stops the colleague treating patients",
+      "Raises the concern straight away with the dentist, practice manager or most senior person available",
+      "Follows the practice raising concerns (whistleblowing) policy",
+      "Refers to GDC Standards, Principle 8: raise concerns if patients are at risk",
+      "Knows the routes to escalate if not acted on (for example the GDC, CQC or NHS)",
+      "Mentions protection for whistleblowers under the Public Interest Disclosure Act 1998",
+      "Records what was seen factually",
+      "Treats the colleague with respect and suggests support (occupational health, GP)"
+    ]
+  },
+  {
+    id: "ep-u2-delegation",
+    group: "End-point practice",
+    title: "A trainee asked to work outside their scope",
+    acs: ["Unit 2"],
+    prompt: "You are the senior dental nurse. A dentist who is running late asks a trainee dental nurse to take an alginate impression for a patient while they finish writing up notes. The trainee has not been trained to take impressions and looks worried.",
+    followups: [
+      "Is this an appropriate task to delegate? Why?",
+      "What would you say to the trainee, and to the dentist?",
+      "What makes delegation safe?",
+      "How could the team stop this happening again?"
+    ],
+    checklist: [
+      "Recognises that taking impressions is an additional skill needing training and competence",
+      "Refers to the GDC Scope of Practice and the principle of only working within your competence",
+      "Explains that the person delegating and the person accepting both have responsibilities",
+      "Supports the trainee to decline politely and safely",
+      "Speaks to the dentist professionally, focusing on patient safety",
+      "Suggests a team solution (training plan, clear roles, better scheduling)",
+      "Shows leadership: protects the trainee and keeps the team working together",
+      "Mentions recording or reporting if it happens again"
+    ]
+  },
+  {
+    id: "ep-u3-consent",
+    group: "End-point practice",
+    title: "An anxious patient and consent",
+    acs: ["Unit 3"],
+    prompt: "A very anxious adult patient is booked for an extraction. While you are preparing the surgery they tell you they don't really understand what is going to happen and only said yes because they felt rushed. The dentist is about to come in.",
+    followups: [
+      "Is this patient's consent valid? Why or why not?",
+      "What would you do before treatment starts?",
+      "How would you communicate with this patient to reduce their anxiety?",
+      "What would be recorded in the notes?"
+    ],
+    checklist: [
+      "Explains valid consent: informed, voluntary, and given by someone with capacity",
+      "Recognises that this consent may not be valid and tells the dentist before treatment",
+      "Knows consent is an ongoing process and the patient can change their mind",
+      "Uses good communication: calm tone, plain language, open questions, active listening",
+      "Checks understanding (for example asking the patient to explain it back)",
+      "Gives time and options, including information to take away",
+      "Records the discussion, the patient's concerns and the outcome",
+      "Mentions confidentiality and respecting the patient's dignity"
+    ]
+  },
+  {
+    id: "ep-u4-inclusion",
+    group: "End-point practice",
+    title: "A patient with a learning disability",
+    acs: ["Unit 4"],
+    prompt: "Sam is 24, has a learning disability and comes with a support worker. Sam becomes very distressed by the noise of the suction and the bright light, and covers their ears. The support worker starts answering all of the dentist's questions for Sam.",
+    followups: [
+      "How would you make sure Sam is involved in their own care?",
+      "What reasonable adjustments could the practice make?",
+      "How would you decide whether Sam can consent?",
+      "Which laws and standards apply?"
+    ],
+    checklist: [
+      "Speaks to Sam directly and doesn't assume they can't understand",
+      "Starts from the presumption of capacity under the Mental Capacity Act 2005",
+      "Suggests reasonable adjustments (quiet time slot, longer appointment, dimmed light, breaks, familiarisation visits)",
+      "Mentions the Equality Act 2010 duty to make reasonable adjustments",
+      "Uses accessible information, such as easy read, pictures or showing equipment first",
+      "Works with the support worker without letting them take over",
+      "Records Sam's communication needs and adjustments so the whole team knows",
+      "Avoids stereotypes and treats Sam with dignity and respect"
+    ]
+  },
+  {
+    id: "ep-u5-exam",
+    group: "End-point practice",
+    title: "Assisting at a new patient examination",
+    acs: ["Unit 5"],
+    prompt: "You are assisting the dentist with a new patient examination. The patient is 58, smokes and takes several medicines. The dentist will carry out a full examination, including a BPE and two bitewing radiographs.",
+    followups: [
+      "Talk me through your role before the patient arrives and during the examination.",
+      "Why is the medical history so important here?",
+      "How would you record the charting and BPE?",
+      "What is your role when radiographs are taken?",
+      "What would you do if the dentist mentions a white patch on the tongue?"
+    ],
+    checklist: [
+      "Prepares the surgery with infection control in mind (PPE, clean surfaces, correct instruments)",
+      "Makes sure the medical history is completed, checked and signed, including medicines and smoking",
+      "Explains why medicines and conditions matter (for example bleeding risk, MRONJ, allergies)",
+      "Records charting accurately using the practice's notation",
+      "Records BPE codes for each sextant correctly",
+      "Knows IR(ME)R roles and stays out of the controlled area during exposure",
+      "Accurately records findings, including any soft tissue findings the dentist notes",
+      "Understands that a suspicious lesion may need referral and supports the patient"
+    ]
+  },
+  {
+    id: "ep-u6-referral",
+    group: "End-point practice",
+    title: "Referring a suspicious ulcer",
+    acs: ["Unit 6"],
+    prompt: "A 62-year-old patient who smokes and drinks heavily has an ulcer on the side of their tongue that has not healed for four weeks. The dentist decides to refer them urgently and asks you to help with the referral.",
+    followups: [
+      "Which referral pathway would be used, and why?",
+      "What information should go in the referral?",
+      "How would you support the patient, who is worried it might be cancer?",
+      "How would the practice make sure the referral isn't lost?"
+    ],
+    checklist: [
+      "Recognises an unexplained ulcer lasting more than 3 weeks as a red flag",
+      "Knows it goes on the urgent suspected cancer pathway",
+      "Lists key referral content (patient details, history, findings, medical history, risk factors, urgency)",
+      "Knows referrals are sent promptly by the agreed secure route",
+      "Tracks the referral and follows up to check the patient has been seen",
+      "Supports the patient honestly and sensitively, without guessing the diagnosis",
+      "Records the referral in the patient's notes",
+      "Mentions prevention, such as smoking and alcohol support"
+    ]
+  },
+  {
+    id: "ep-u7-ortho",
+    group: "End-point practice",
+    title: "Oral health advice for a patient with a brace",
+    acs: ["Unit 7"],
+    prompt: "Ella is 14 and has fixed orthodontic braces. At her check-up there is plaque around the brackets and white marks starting to appear on her teeth. She drinks fizzy drinks most days and says brushing around the brace is 'too much hassle'.",
+    followups: [
+      "What are the white marks, and why have they appeared?",
+      "What evidence-based advice would you give?",
+      "How would you help Ella actually change her habits?",
+      "How would you know if your advice had worked?"
+    ],
+    checklist: [
+      "Identifies early demineralisation caused by plaque and sugar around the brackets",
+      "Gives Delivering Better Oral Health advice: twice daily brushing with 1,350 to 1,500 ppm toothpaste, spit don't rinse",
+      "Suggests cleaning aids for braces, such as interdental or single tufted brushes",
+      "Advises reducing how often she has sugary and acidic drinks",
+      "Mentions daily fluoride mouthwash at a different time to brushing, if advised by the dentist",
+      "Uses behaviour change skills: involving Ella, small realistic goals, positive feedback",
+      "Records the advice given and plans to review it",
+      "Suggests a way to measure progress (plaque scores, photos, review appointment)"
+    ]
+  },
+  {
+    id: "ep-u8-wellbeing",
+    group: "End-point practice",
+    title: "A colleague who is struggling",
+    acs: ["Unit 8"],
+    prompt: "A dental nurse colleague has seemed tired and tearful for weeks. Today she mixed up two patients' notes and then cried in the staff room. She tells you she is working extra shifts to cover staff shortages and isn't sleeping.",
+    followups: [
+      "What signs of stress can you see here?",
+      "How would you approach her?",
+      "Where could she get support?",
+      "What about the mix-up with the notes?",
+      "How do you look after your own wellbeing at work?"
+    ],
+    checklist: [
+      "Recognises signs of stress and possible burnout",
+      "Approaches privately and kindly, and listens without judging",
+      "Signposts support (manager, occupational health, employee assistance programme, GP)",
+      "Mentions workload and the HSE Management Standards (for example demands and support)",
+      "Deals with the records mix-up as a patient safety issue and reports it",
+      "Respects her confidentiality where it is safe to do so",
+      "Describes their own self-care (breaks, sleep, talking to someone, boundaries)"
+    ]
+  },
+  {
+    id: "ep-u9-cpd",
+    group: "End-point practice",
+    title: "Planning your CPD after an appraisal",
+    acs: ["Unit 9"],
+    prompt: "At your appraisal your manager says you have done well this year but you need to improve your knowledge of radiography and radiation protection. You also realise you haven't logged any CPD for months.",
+    followups: [
+      "What are the GDC's CPD requirements for dental nurses?",
+      "How would you plan your CPD for the next year?",
+      "How would you use the appraisal feedback?",
+      "How would you reflect on your learning?"
+    ],
+    checklist: [
+      "Knows the requirement: at least 50 hours of verifiable CPD over 5 years, with at least 10 hours in any 2-year period",
+      "Knows every registrant needs a personal development plan (PDP)",
+      "Links CPD to their field of practice and the GDC development outcomes",
+      "Names GDC recommended topics, such as radiography and radiation protection",
+      "Uses feedback from appraisal to set specific learning goals",
+      "Keeps records and makes an annual CPD statement to the GDC",
+      "Describes a reflective model (for example Gibbs) and how reflection changes practice"
+    ]
+  },
+  {
+    id: "ep-u10-arrest",
+    group: "End-point practice",
+    title: "A patient collapses in the waiting room",
+    acs: ["Unit 10"],
+    prompt: "You hear a shout from reception. An older patient has collapsed in the waiting room. When you reach them, they are not responding and are not breathing normally.",
+    followups: [
+      "Talk me through exactly what you would do, in order.",
+      "What would each member of the team be doing?",
+      "Which equipment would you need, and how do you make sure it is ready?",
+      "What happens after the emergency is over?"
+    ],
+    checklist: [
+      "Checks for danger, then response, then airway and breathing",
+      "Calls for help, asks someone to call 999 and fetch the AED and emergency kit",
+      "Starts CPR at 30 compressions to 2 breaths, 100 to 120 per minute, 5 to 6 cm deep",
+      "Attaches the AED as soon as it arrives and follows its prompts",
+      "Describes clear team roles (CPR, AED, calling 999, meeting the ambulance, recording times)",
+      "Mentions oxygen and airway adjuncts in line with training",
+      "Knows the emergency kit, drugs and AED are checked regularly and recorded",
+      "Records the event and takes part in a team debrief and support afterwards"
     ]
   }
 ];
