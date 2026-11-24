@@ -7,7 +7,7 @@
 (function () {
   var cfg = window.DNT_EXAMINER || { scenarios: [], maxFollowups: 5 };
   var all = window.DNT_SCENARIOS || [];
-  var READ_SECS = 10 * 60;
+  var READ_SECS = 150; // 2.5 minutes per scenario (10 minutes reading shared across the scenarios)
   var TALK_SECS = 10 * 60;
 
   function $(id) { return document.getElementById(id); }
