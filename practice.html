@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Practice | DNT Professional Discussion Prep</title>
+<meta name="description" content="Timed practice scenarios with follow-up questions and self-check checklists.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/dnt-logo.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="test-banner">TEST SITE: this is a preview for DNT learners and staff. Content is still being checked.</div>
+<header class="site-header">
+  <div class="inner">
+    <a class="logo-box" href="index.html"><img src="assets/dnt-logo.png" alt="DNT logo"></a>
+    <span class="brand">Dental Nurse Training</span>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Guide</a>
+      <a href="practice.html" aria-current="page">Practice</a>
+      <a href="knowledge.html">Knowledge test</a>
+      <a href="assessor.html">AI assessor</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section id="list">
+    <h1>Practice scenarios</h1>
+    <p>Pick a scenario. You will get reading time, then answer out loud. Afterwards, tick off what you covered to see how you did.</p>
+    <p class="progress-summary" id="progress"></p>
+    <div class="settings">
+      <label>Reading time <input type="number" id="readMins" min="0" max="30" value="5"> mins</label>
+      <label>Answer time <input type="number" id="answerMins" min="1" max="60" value="10"> mins</label>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter scenarios"></div>
+    <div class="grid" id="cards"></div>
+  </section>
+
+  <section class="runner" id="runner" hidden aria-live="polite">
+    <button class="btn secondary small" id="back">Back to scenarios</button>
+    <h2 id="r-title"></h2>
+    <div class="tags" id="r-tags"></div>
+    <div class="scenario-text" id="r-prompt"></div>
+
+    <div id="phase-timer">
+      <div class="phase-label" id="r-phase"></div>
+      <div class="timer" id="r-timer">0:00</div>
+      <div class="btn-row">
+        <button class="btn" id="r-next">Start answering</button>
+        <button class="btn secondary" id="r-pause">Pause</button>
+      </div>
+    </div>
+
+    <div id="phase-followups" hidden>
+      <h3>Follow-up questions</h3>
+      <p>Answer each one out loud. If someone is practising with you, they can read these out.</p>
+      <ol class="followups" id="r-followups"></ol>
+      <button class="btn" id="r-tocheck">I've finished, check my answer</button>
+    </div>
+
+    <div id="phase-check" hidden>
+      <h3>Did you cover these?</h3>
+      <p>Be honest. Only tick a point if you actually said it.</p>
+      <div class="checklist" id="r-checklist"></div>
+      <div class="result" id="r-result"></div>
+      <div class="btn-row">
+        <button class="btn" id="r-save">Save my score</button>
+        <button class="btn secondary" id="r-again">Try again</button>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="assets/scenarios.js"></script>
+<script src="assets/practice.js"></script>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>DNT Dental Nurse Training</strong>, Professional Discussion preparation for the NEBDN Level 3 Diploma in Dental Nursing.</p>
+    <p>Covers AC: KE 1.1.9, PE 1.2.10, KE 7.1.2, KE 7.1.3, KE 7.1.4, KE 7.1.11, PE 7.2.1, PE 7.2.2, PE 7.2.3</p>
+    <p>DNT is an independent training provider. This site is not produced or endorsed by NEBDN or the GDC.</p>
+  </div>
+</footer>
+</body></html>

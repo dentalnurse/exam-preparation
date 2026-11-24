@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge test | DNT Professional Discussion Prep</title>
+<meta name="description" content="Multiple choice knowledge test practice for dental nursing learners.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/dnt-logo.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="test-banner">TEST SITE: this is a preview for DNT learners and staff. Content is still being checked.</div>
+<header class="site-header">
+  <div class="inner">
+    <a class="logo-box" href="index.html"><img src="assets/dnt-logo.png" alt="DNT logo"></a>
+    <span class="brand">Dental Nurse Training</span>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Guide</a>
+      <a href="practice.html">Practice</a>
+      <a href="knowledge.html" aria-current="page">Knowledge test</a>
+      <a href="assessor.html">AI assessor</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section id="kt-start">
+    <h1>Knowledge test practice</h1>
+    <p>Multiple choice questions across all ten units. Every question was written by DNT and comes with an explanation.</p>
+    <p class="progress-summary" id="kt-progress"></p>
+    <div class="grid">
+      <article class="card">
+        <h3>Practice by unit</h3>
+        <p>Pick a unit and see the answer and explanation straight after each question.</p>
+        <label for="kt-unit" class="sr">Unit</label>
+        <select id="kt-unit" class="select"></select>
+        <button class="btn small" id="kt-practice" type="button">Start practice</button>
+      </article>
+      <article class="card">
+        <h3>Mock exam</h3>
+        <p>Timed, with no answers shown until the end. Questions are mixed across all units.</p>
+        <div class="settings">
+          <label>Questions <input type="number" id="kt-count" min="5" max="200" value="65"></label>
+          <label>Minutes <input type="number" id="kt-mins" min="5" max="240" value="90"></label>
+        </div>
+        <button class="btn small" id="kt-mock" type="button">Start mock exam</button>
+      </article>
+    </div>
+    <div class="info">The mock exam is set to 65 questions in 90 minutes, which is the format reported for the NEBDN Knowledge Test. Always check your NEBDN candidate guidance for the current format.</div>
+  </section>
+
+  <section class="runner" id="kt-run" hidden aria-live="polite">
+    <div class="kt-top">
+      <button class="btn secondary small" id="kt-quit" type="button">Finish</button>
+      <span class="phase-label" id="kt-count-label"></span>
+      <span class="timer kt-timer" id="kt-timer" hidden></span>
+    </div>
+    <p class="tag" id="kt-unit-label"></p>
+    <h2 id="kt-q"></h2>
+    <div class="kt-options" id="kt-options"></div>
+    <div class="info" id="kt-expl" hidden></div>
+    <div class="btn-row">
+      <button class="btn secondary" id="kt-prev" type="button">Previous</button>
+      <button class="btn" id="kt-next" type="button">Next</button>
+    </div>
+  </section>
+
+  <section id="kt-results" hidden>
+    <h2>Your results</h2>
+    <p class="result" id="kt-score"></p>
+    <div id="kt-byunit"></div>
+    <h3>Review your answers</h3>
+    <div id="kt-review"></div>
+    <div class="btn-row"><button class="btn" id="kt-again" type="button">Back to start</button></div>
+  </section>
+</main>
+<script src="assets/questions.js"></script>
+<script src="assets/knowledge.js"></script>
+<footer class="site-footer">
+  <div class="inner">
+    <p><strong>DNT Dental Nurse Training</strong>, Professional Discussion preparation for the NEBDN Level 3 Diploma in Dental Nursing.</p>
+    <p>Covers knowledge from Units 1 to 10</p>
+    <p>DNT is an independent training provider. This site is not produced or endorsed by NEBDN or the GDC.</p>
+  </div>
+</footer>
+</body></html>
